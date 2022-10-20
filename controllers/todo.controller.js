@@ -13,14 +13,19 @@ exports.create = (req, res) => {
     console.log("title: " + req.body.title);
     return;
   }
-
+  const userid = req.session.userid;
+  console.log(userid);
+  
   // Create a Todo
   const todo = {
     title: req.body.title,
     description: req.body.description,
     status: req.body.status ? req.body.status : false,
     published: req.body.published ? req.body.published : false,
+    userId: userid
   };
+
+  console.log(todo);
 
   // Save Todo in the database
   Todo.create(todo)

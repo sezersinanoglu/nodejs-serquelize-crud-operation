@@ -73,6 +73,7 @@ exports.signin = async (req, res) => {
     }
 
     req.session.token = token;
+    req.session.userid = user.id;
 
     console.log(" token bilgisi: "+token);
 
